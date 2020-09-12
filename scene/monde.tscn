@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scene/Camera2D.gd" type="Script" id=1]
+[ext_resource path="res://image/healthbar_under.png" type="Texture" id=2]
+[ext_resource path="res://image/healthbar_progress.png" type="Texture" id=3]
+[ext_resource path="res://image/fighting-game-background-waneella.jpg" type="Texture" id=4]
+[ext_resource path="res://scene/perso1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scene/perso2.tscn" type="PackedScene" id=6]
+
+[sub_resource type="ImageTexture" id=1]
+flags = 3
+storage = 2
+lossy_quality = 0.69
+flags = 3
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 820.569, 10 )
+
+[node name="monde" type="Node2D"]
+position = Vector2( 252, 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 420.25, 290.47 )
+scale = Vector2( 2, 2 )
+current = true
+limit_left = 0
+limit_right = 1584
+limit_bottom = 598
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 2726.0
+margin_bottom = 367.0
+rect_scale = Vector2( 0.15, 0.15 )
+max_value = 200.0
+value = 200.0
+exp_edit = true
+texture_under = ExtResource( 2 )
+texture_over = SubResource( 1 )
+texture_progress = ExtResource( 3 )
+
+[node name="TextureProgress2" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 1019.0
+margin_top = 9.0
+margin_right = 3738.0
+margin_bottom = 369.0
+rect_scale = Vector2( -0.15, 0.15 )
+max_value = 200.0
+value = 200.0
+exp_edit = true
+texture_under = ExtResource( 2 )
+texture_over = SubResource( 1 )
+texture_progress = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 134.0
+margin_top = 533.0
+margin_right = 237.0
+margin_bottom = 547.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="fighting-game-background-waneella" type="Sprite" parent="."]
+position = Vector2( 539.723, 292.389 )
+scale = Vector2( 2.2, 2.2 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -221.512, 24.1011, -217.411, 588.001, -268.675, 585.951, -254.321, -12.8087, 1341.08, -6.89304, 1329.92, 573.325, 1276.92, 595.641, 1276.92, 37.7391 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 853.013, 219.072 )
+scale = Vector2( 2, 2 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 223.517, 222.268 )
+scale = Vector2( 2, 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+editor/display_folded = true
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 507.562, 563.778 )
+shape = SubResource( 2 )

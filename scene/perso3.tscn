@@ -1,0 +1,216 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://scene/perso3.gd" type="Script" id=1]
+[ext_resource path="res://image/perso2.png" type="Texture" id=2]
+[ext_resource path="res://image/perso2_3.png" type="Texture" id=3]
+[ext_resource path="res://image/perso2_22.png" type="Texture" id=4]
+[ext_resource path="res://image/perso2_10.png" type="Texture" id=5]
+[ext_resource path="res://image/perso2_11.png" type="Texture" id=6]
+[ext_resource path="res://image/perso2_12.png" type="Texture" id=7]
+[ext_resource path="res://image/perso2_7.png" type="Texture" id=8]
+[ext_resource path="res://image/perso2_8.png" type="Texture" id=9]
+[ext_resource path="res://image/perso2_9.png" type="Texture" id=10]
+[ext_resource path="res://image/perso2_19.png" type="Texture" id=11]
+[ext_resource path="res://image/perso2_20.png" type="Texture" id=12]
+[ext_resource path="res://image/perso2_21.png" type="Texture" id=13]
+[ext_resource path="res://image/perso2_23.png" type="Texture" id=14]
+[ext_resource path="res://image/perso2_24.png" type="Texture" id=15]
+[ext_resource path="res://image/perso2_1.png" type="Texture" id=16]
+[ext_resource path="res://image/perso2_2.png" type="Texture" id=17]
+[ext_resource path="res://image/perso2_4.png" type="Texture" id=18]
+[ext_resource path="res://image/perso2_6.png" type="Texture" id=19]
+[ext_resource path="res://image/perso2_5.png" type="Texture" id=20]
+[ext_resource path="res://image/perso2_13.png" type="Texture" id=21]
+[ext_resource path="res://image/perso2_14.png" type="Texture" id=22]
+[ext_resource path="res://image/perso2_15.png" type="Texture" id=23]
+[ext_resource path="res://image/perso2_16.png" type="Texture" id=24]
+[ext_resource path="res://image/perso2_17.png" type="Texture" id=25]
+[ext_resource path="res://image/perso2_18.png" type="Texture" id=26]
+[ext_resource path="res://scene/Body.gd" type="Script" id=27]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "stop",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "subit_coup",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "coup_pied",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "coup_poing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "saut_coup_pied",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "KO",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 3 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "marche",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "acroupi",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "saut",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "special_coup",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 11.1306, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 49.7488 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+scale = Vector2( 2, 2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "special_coup"
+frame = 4
+playing = true
+flip_h = true
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0.718078, 48.8607 )
+scale = Vector2( 1.20172, 0.464667 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Body" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 27 )
+
+[node name="Body" type="CollisionShape2D" parent="Body" index="0"]
+
+position = Vector2( 3.76162, 0.965427 )
+scale = Vector2( 2.5875, 0.9655 )
+shape = SubResource( 3 )
+
+[node name="Attks" type="KinematicBody2D" parent="." index="3"]
+
+position = Vector2( -0.548546, -1.08891 )
+scale = Vector2( 1.01714, 1.01714 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="PunchHitBox" type="CollisionShape2D" parent="Attks" index="0"]
+
+position = Vector2( 34.8533, -17.1564 )
+scale = Vector2( 0.820932, 0.852107 )
+shape = SubResource( 4 )
+
+[node name="PunchHitBox2" type="CollisionShape2D" parent="Attks" index="1"]
+
+position = Vector2( -33.1397, -16.7749 )
+scale = Vector2( 0.750073, 0.864672 )
+shape = SubResource( 5 )
+
+[node name="KickHitBox" type="CollisionShape2D" parent="Attks" index="2"]
+
+position = Vector2( -31.0703, -5.96855 )
+scale = Vector2( 0.582336, 0.980776 )
+shape = SubResource( 6 )
+
+[node name="KickHitBox2" type="CollisionShape2D" parent="Attks" index="3"]
+
+position = Vector2( 32.0863, -6.29676 )
+scale = Vector2( 0.648447, 0.965157 )
+shape = SubResource( 7 )
+
+[node name="JumpKickHitBox" type="CollisionShape2D" parent="Attks" index="4"]
+
+position = Vector2( 23.2504, -32.9297 )
+scale = Vector2( 0.653851, 0.888829 )
+shape = SubResource( 8 )
+
+[node name="JumpKickHitBox2" type="CollisionShape2D" parent="Attks" index="5"]
+
+position = Vector2( -20.5235, -32.6641 )
+scale = Vector2( 0.698911, 0.888829 )
+shape = SubResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[connection signal="body_entered" from="Body" to="Body" method="_on_Body_body_entered"]
+
+
